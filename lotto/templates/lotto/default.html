@@ -1,0 +1,44 @@
+<!DOCTYPE html> # html 파일임을 알려줌
+
+{% load static %} # 장고 템플릿 태그
+
+<html lang="ko"> # 해석시 기준 언어
+<head>
+  <title>My Little Lotto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> # 웹 페이지 셋팅에 관련
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> # 부트스트랩
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+  <link href="//fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet"> # 구글 웹 폰트
+
+  <link rel="stylesheet" href="{% static 'css/lotto.css' %}">
+
+</head>
+
+<body>
+
+  <div class="page-header"> # 부트스트랩 클래스
+    <h1>
+      Selected Lotto Numbers
+      <a href="{% url 'new_lotto' %}">
+        <span class="glyphicon glyphicon-plus btn btn-default"></span>
+      </a>
+    </h1>
+  </div>
+
+
+  <div class="container lotto"> # 로또 번호 셋 예시
+
+    {% for lotto in lottos %}
+      <!-- urls.py의 name='detail' 과 lottokey 에 해당 -->
+      <h2><a href="{% url 'detail' lottokey=lotto.pk %}">{{lotto.text}}</a></h2>
+      <p>{{ lotto.update_date }}</p>
+      <p>{{ lotto.lottos | linebreaksbr }}</p>
+    {% endfor %}
+
+
+  </div>
+
+</body>
+</html>

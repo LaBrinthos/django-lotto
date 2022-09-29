@@ -1,0 +1,33 @@
+.page-header {
+    background-color: #652596;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    font-family: 'Space Mono', monospace;
+}
+
+.page-header h1 { # 모든 h1 태그를 가리킴
+  color: #FFFFFF;
+}
+
+.container {
+  font-family: 'Space Mono', monospace;
+}
+
+.container h2 {
+  color: #b9f442;
+}
+
+
+C:\work_django\django_mldl\site_1\lotto\templates\lotto 의 default.html 파일 head 태그 내부 수정
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+  <title>My Little Lotto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link href="//fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/lotto.css' %}">
+</head>
